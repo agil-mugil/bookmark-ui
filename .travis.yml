@@ -1,21 +1,20 @@
 language: node_js
 node_js:
   - "10"
-dist: trusty
-sudo: required
+sudo: false
+ 
 branches:
   only:
   - master
-before_script:
-  - npm install -g @angular/cli
-script:
-  - ng lint
-  - ng build --prod --base-href https://pmurugesan15.github.io/bookmark-ui/
+ 
+cache:
+  directories:
+    - node_modules
+ 
 deploy:
-  provider: pages
+  provider: heroku
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: dist/bookmark-ui
-  keep_history: true
-  on:
-    branch: master
+  keep-history: true
+  api-key:
+    secure: $HEROKU_API_KEY
+  app: bookmark-ui-apptest
