@@ -1,17 +1,10 @@
 language: node_js
 node_js:
-  - "10"
-dist: trusty
-sudo: required
+  - 10.13.0
+install:
+  - npm install
+script:
+  - npm run test
 branches:
   only:
-  - master
-before_script:
-  - npm install -g @angular/cli
-script:
-  - ng lint
-  - ng build --prod --base-href https://pmurugesan15.github.io/bookmark-ui/
-deploy:
-  provider: heroku
-  api_key:
-    secure: $HEROKU_API_KEY
+    - master
