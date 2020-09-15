@@ -1,0 +1,24 @@
+<div class="container">
+  <table class="table table-bordered table-inverse">
+    <tr>
+      <th>Group By</th>
+      <th>Group Name</th>
+      <th>Group Creator</th>
+      <th class="text-right">Group Cards</th>
+    </tr>
+    <tr *ngFor="let group of groups">
+      <td>
+        {{group.groupType}}
+      </td>
+      <td>
+        {{group.groupValue}}
+      </td>
+      <td>
+        {{group.groupAdmins[0].userId}}
+      </td>
+      <td class="text-right">
+        {{group.groupId}}
+      </td>
+    </tr>
+  </table>
+</div>

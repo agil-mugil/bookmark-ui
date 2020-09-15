@@ -8,7 +8,7 @@ import { CardService } from '../../services/card.service';
 })
 export class CardComponent implements OnInit {
 	
-	public cards;
+ cards:any;
 
   constructor(private cardService: CardService) { }
 

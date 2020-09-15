@@ -1,0 +1,28 @@
+<div class="container">
+  <form [formGroup]="groupForm" (ngSubmit)="createGroup()" novalidate>
+    <div *ngIf="validMessage != ''">
+      <h3 class="has-info">{{validMessage}}</h3>
+    </div>
+    <div class="form-group">
+      <label>Group For</label>
+      <select class="form-control" formControlName="groupType" (change)="getGroupValues($event.target.value)"  required autofocus>
+        <option value="">Please select the Group By</option>
+        <option *ngFor="let m of groupTypes"
+                [value]="m">
+                {{m}}
+        </option>
+      </select>
+    </div>
+ <div class="form-group">
+      <label>Select your team</label>
+      <select class="form-control" formControlName="groupValue" required>
+        <option value="">Please select your team</option>
+        <option *ngFor="let groupData of groupValues"
+                [value]="groupData.groupValue">
+                {{groupData.groupValue}} - {{groupData.groupValueDesc}}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
+</div>

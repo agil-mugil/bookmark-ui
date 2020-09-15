@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bookmark-ui';
+  title = 'Manage Bookmar';
+  activeMenu: any =1;
+	isActive(menu:any): string {
+		if(menu==1) {
+			return 'active';
+		}
+	}
+	setMenu(menuId:any): void {
+		this.activeMenu=menuId;
+	}
 }
