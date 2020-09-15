@@ -25,9 +25,13 @@ export class RedirectGuard implements CanActivate {
 	}
 	
 	redirect(orignalUrl:string) {
-		window.close();
-	 	window.open(orignalUrl, "_blank");
+		//this.closeWindow();
+	 	window.open(orignalUrl, "_self");
 	    return false;
+	}
+	closeWindow() { 
+  		window.open('','_parent',''); 
+  		window.close(); 
 	}
   
 }

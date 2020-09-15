@@ -22,7 +22,7 @@ export class GroupService {
 		return this.http.get('/server/api/v1/groups/groupValues?groupType='+groupType);
 	}
 	createGroup(group) {
-	let body = JSON.stringify(group);
-	return this.http.post("/server/api/v1/groups/createGroup", body,httpOptions);
-}
+		let body = JSON.stringify(group);
+		return this.http.post("/server/api/v1/groups/createGroup", body,httpOptions);
+	}
 }

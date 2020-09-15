@@ -20,4 +20,9 @@ export class CardService {
 	getCard(shortUrl: String){
 		return this.http.get('/server/api/v1/cards/cardByShortUrl?shortUrl='+shortUrl);
 	}
+	createCard(card:any) {
+		let body = JSON.stringify(card);
+		return this.http.post("/server/api/v1/cards/createCard", body,httpOptions);
+	}
+	
 }

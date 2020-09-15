@@ -10,6 +10,7 @@ import { CardComponent } from './components/card/card.component';
 import { RedirectComponent } from './components/redirect/redirect.component';
 import { GroupComponent } from './components/group/group.component';
 import { CreateGroupComponent } from './components/creategroup/create-group.component';
+import { AddcardComponent } from './components/addcard/addcard.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreateGroupComponent } from './components/creategroup/create-group.comp
     CardComponent,
     RedirectComponent,
     GroupComponent,
-    CreateGroupComponent
+    CreateGroupComponent,
+    AddcardComponent
   ],
   imports: [
     BrowserModule,

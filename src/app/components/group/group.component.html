@@ -4,7 +4,8 @@
       <th>Group By</th>
       <th>Group Name</th>
       <th>Group Creator</th>
-      <th class="text-right">Group Cards</th>
+      <th>Group Cards</th>
+	  <th>Create Card</th>
     </tr>
     <tr *ngFor="let group of groups">
       <td>
@@ -16,8 +17,11 @@
       <td>
         {{group.groupAdmins[0].userId}}
       </td>
-      <td class="text-right">
+      <td>
 		<a [routerLink] = "['/cards', group.groupId]">{{group.groupValue}}</a>
+      </td>
+		<td>
+		<a [routerLink] = "['/addCard',group.groupId,group.groupValue]">Add a Card</a>
       </td>
     </tr>
   </table>

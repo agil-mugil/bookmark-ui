@@ -5,13 +5,18 @@ import { RedirectComponent } from './components/redirect/redirect.component';
 import { RedirectGuard } from './components/redirect/redirect.guard';
 import { GroupComponent} from './components/group/group.component';
 import { CreateGroupComponent } from './components/creategroup/create-group.component';
+import { AddcardComponent } from './components/addcard/addcard.component';
 
 const routes: Routes = [{
 			path: 'cards',
 			component: CardComponent
 			},
 			{path:'cards/:groupId',
-			component: CardComponent},
+			component: CardComponent
+			},
+			{path:'addCard/:groupId/:groupValue',
+			component: AddcardComponent
+			},
 			{
 			path: 'groups',
 			component: GroupComponent
