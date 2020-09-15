@@ -14,6 +14,9 @@ export class CardService {
 	getCards() {
 		return this.http.get('/server/api/v1/cards');
 	}
+	getCardsByGroup(groupId: any) {
+		return this.http.get('/server/api/v1/cards/cardsByGroup?groupId='+groupId);
+	}
 	getCard(shortUrl: String){
 		return this.http.get('/server/api/v1/cards/cardByShortUrl?shortUrl='+shortUrl);
 	}

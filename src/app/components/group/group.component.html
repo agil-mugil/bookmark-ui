@@ -17,7 +17,7 @@
         {{group.groupAdmins[0].userId}}
       </td>
       <td class="text-right">
-        {{group.groupId}}
+		<a [routerLink] = "['/cards', group.groupId]">{{group.groupValue}}</a>
       </td>
     </tr>
   </table>

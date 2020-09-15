@@ -10,6 +10,8 @@ const routes: Routes = [{
 			path: 'cards',
 			component: CardComponent
 			},
+			{path:'cards/:groupId',
+			component: CardComponent},
 			{
 			path: 'groups',
 			component: GroupComponent
