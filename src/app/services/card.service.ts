@@ -17,7 +17,11 @@ export class CardService {
 		return this.http.get('/server/api/v1/cards');
 	}
 	getCardsByGroup(groupId: any) {
-		return this.http.get('/server/api/v1/cards/cardsByGroup?groupId='+groupId);
+		this.username = this.sharedService.getUserName();
+		const httpOptions = {
+			headers: new HttpHeaders({'Content-Type' : 'application/json','username':this.username})
+			};
+		return this.http.get('/server/api/v1/cards/cardsByGroup?groupId='+groupId,httpOptions);
 	}
 	getCard(shortUrl: String){
 		return this.http.get('/server/api/v1/cards/cardByShortUrl?shortUrl='+shortUrl);

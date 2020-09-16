@@ -5,7 +5,7 @@
 <div *ngIf="validMessage != ''">
       <h3 class="has-info">{{validMessage}}</h3>
  </div>
-<div class="container" *ngIf='groups && groups.length'>
+<div style="width: 100%" class="container" *ngIf='groups && groups.length'>
   <table class="table table-bordered  table-inverse ">
     <tr>
       <th>Group By</th>
@@ -13,7 +13,7 @@
       <th>Group Creator</th>
 	  <th>Group Admin(s)</th>
       <th>Group Cards</th>
-	  <th>Action on Groups</th>
+	  <th colspan="2">Action on Groups</th>
     </tr>
     <tr *ngFor="let group of groups">
       <td>
@@ -23,7 +23,8 @@
         {{group.groupValue}}
       </td>
       <td>
-        {{group.groupAdmins[0].userId}}
+        {{group.groupAdmins[0].userId}}<br><br>
+		<a class="btn btn-info"  [routerLink] = "['/cards', group.groupId]">Publish Cards</a>
       </td>
 	  <td>
 		<div style="padding: 5px;" *ngFor="let admin of group.groupAdmins">{{admin.userId}} 
@@ -32,9 +33,9 @@
         
       </td>
       <td>
-		<a [routerLink] = "['/cards', group.groupId]">{{group.groupValue}}</a>
+		<a [routerLink] = "['/cards', group.groupId]">{{group.groupValue}}</a><br>
       </td>
-		<td>
+		<td colspan="2">
 		<a [routerLink] = "['/addCard',group.groupId,group.groupValue]">Add a Card</a>&nbsp;&nbsp;
 		<br><br>
 		<form [formGroup]="groupAdmin" (ngSubmit)="addAdminToGroup(group.groupId)" novalidate>
