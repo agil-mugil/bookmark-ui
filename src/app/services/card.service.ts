@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { SharedService } from './shared.service';
 const httpOptions = {
 	headers: new HttpHeaders({'Content-Type' : 'application/json'})
+	
 };
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private sharedService: SharedService) { }
 	
+	username: string;
 	getCards() {
 		return this.http.get('/server/api/v1/cards');
 	}
@@ -22,6 +24,10 @@ export class CardService {
 	}
 	createCard(card:any) {
 		let body = JSON.stringify(card);
+		this.username = this.sharedService.getUserName();
+		const httpOptions = {
+			headers: new HttpHeaders({'Content-Type' : 'application/json','username':this.username})
+			};
 		return this.http.post("/server/api/v1/cards/createCard", body,httpOptions);
 	}
 	

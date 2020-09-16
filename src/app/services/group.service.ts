@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { SharedService } from './shared.service';
 
-const httpOptions = {
-	headers: new HttpHeaders({'Content-Type' : 'application/json'})
-};
+
 @Injectable({
   providedIn: 'root'
 })
 export class GroupService {
 
-  constructor(private http:HttpClient) { }
-
+  constructor(private http:HttpClient, private sharedService: SharedService) { }
+	username: string;
 	getGroups() {
 		return this.http.get('/server/api/v1/groups');
 	}
@@ -21,8 +20,13 @@ export class GroupService {
 	getGroupValues(groupType:string) {
 		return this.http.get('/server/api/v1/groups/groupValues?groupType='+groupType);
 	}
-	createGroup(group) {
+	createGroup(group:any) {
 		let body = JSON.stringify(group);
+		this.username = this.sharedService.getUserName();
+		const httpOptions = {
+			headers: new HttpHeaders({'Content-Type' : 'application/json','username':this.username})
+			};
 		return this.http.post("/server/api/v1/groups/createGroup", body,httpOptions);
 	}
+	
 }
