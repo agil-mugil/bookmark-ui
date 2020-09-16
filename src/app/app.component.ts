@@ -7,13 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Manage Bookmar';
-  activeMenu: any =1;
-	isActive(menu:any): string {
-		if(menu==1) {
-			return 'active';
-		}
-	}
-	setMenu(menuId:any): void {
-		this.activeMenu=menuId;
-	}
 }

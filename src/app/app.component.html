@@ -3,11 +3,5 @@
 		Manage Bookmarks!
 	</h1>
 </div>
-<div id='cssmenu'>
-<ul>
-   <li class="{{activeMenu==1? 'active' : ''}}" ><a [routerLink] = "['/cards']" (click)='setMenu(1)'>Home</a></li>
-   <li class="{{activeMenu==2? 'active' : ''}}" ><a [routerLink] = "['/groups']" (click)='setMenu(2)'>Groups</a></li>
-   <li class="{{activeMenu==3? 'active' : ''}}" ><a [routerLink] = "['/createGroup']" (click)='setMenu(3)'>Create Group</a></li>
-</ul>
-</div>
+<app-navbar></app-navbar>
 <router-outlet></router-outlet>

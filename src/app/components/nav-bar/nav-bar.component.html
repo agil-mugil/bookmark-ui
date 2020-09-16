@@ -1,0 +1,14 @@
+<div>
+	<button type="button" class="btn btn-primary"><a  (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</a></button>
+	<button type="button" class="btn btn-primary"><a  (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</a></button>
+	<a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
+</div>
+<header>
+	<div id='cssmenu'>
+	<ul>
+	   <li class="{{activeMenu==1? 'active' : ''}}" ><a [routerLink] = "['/cards']" (click)='setMenu(1)'>Home</a></li>
+	   <li class="{{activeMenu==2? 'active' : ''}}" ><a [routerLink] = "['/groups']" (click)='setMenu(2)'>Groups</a></li>
+	   <li class="{{activeMenu==3? 'active' : ''}}" ><a [routerLink] = "['/createGroup']" (click)='setMenu(3)'>Create Group</a></li>
+	</ul>
+	</div>
+</header>

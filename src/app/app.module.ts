@@ -11,6 +11,8 @@ import { RedirectComponent } from './components/redirect/redirect.component';
 import { GroupComponent } from './components/group/group.component';
 import { CreateGroupComponent } from './components/creategroup/create-group.component';
 import { AddcardComponent } from './components/addcard/addcard.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AddcardComponent } from './components/addcard/addcard.component';
     RedirectComponent,
     GroupComponent,
     CreateGroupComponent,
-    AddcardComponent
+    AddcardComponent,
+    NavBarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

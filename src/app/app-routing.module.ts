@@ -6,28 +6,41 @@ import { RedirectGuard } from './components/redirect/redirect.guard';
 import { GroupComponent} from './components/group/group.component';
 import { CreateGroupComponent } from './components/creategroup/create-group.component';
 import { AddcardComponent } from './components/addcard/addcard.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AuthGuard} from './services/auth.guard';
 
 const routes: Routes = [{
 			path: 'cards',
-			component: CardComponent
+			component: CardComponent,
+    		canActivate: [AuthGuard]
 			},
 			{path:'cards/:groupId',
-			component: CardComponent
+			component: CardComponent,
+    		canActivate: [AuthGuard]
 			},
 			{path:'addCard/:groupId/:groupValue',
-			component: AddcardComponent
+			component: AddcardComponent,
+    		canActivate: [AuthGuard]
 			},
 			{
 			path: 'groups',
-			component: GroupComponent
+			component: GroupComponent,
+    		canActivate: [AuthGuard]
 			},
 			{
 			path: 'createGroup',
-			component: CreateGroupComponent
+			component: CreateGroupComponent,
+    		canActivate: [AuthGuard]
 			},
 			{
+		    path: 'profile',
+		    component: ProfileComponent,
+    		canActivate: [AuthGuard]
+		 	},
+			{
 			path: '',
-			component: CardComponent
+			component: CardComponent,
+    		canActivate: [AuthGuard]
 			},
 			{
 			path: '**',
