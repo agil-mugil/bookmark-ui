@@ -48,7 +48,7 @@ deleteAdmin(groupId: number){
 	}
 
 addAdminToGroup(groupId: number){
-	
+	this.validMessage = '';
 	if(this.groupAdmin.get('userId').value.trim() == '') {
 		alert("Please enter user id");
 		return false;
@@ -63,9 +63,10 @@ addAdminToGroup(groupId: number){
 				console.log(data);
 				return true;
 			},
-			error => {
-				return Observable.throw(error);
-			}
+			err => {console.error(err),
+			this.errorMessage = "The "+this.groupAdmin.get('userId').value+" is already part of admin group";
+			},
+			() => console.log('Group admin deleted')
 		)
 }
 

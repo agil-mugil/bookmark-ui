@@ -38,7 +38,6 @@ objectkeys = Object.keys;
 		bookmarkUrl: new FormControl('',Validators.required),
 		shortUrl: new FormControl(''),
 		imageUrl: new FormControl('',Validators.required),
-		publish: new FormControl('',Validators.required),
 		groupId: new FormControl(this.groupId,Validators.required)
 	});
   }
