@@ -1,7 +1,8 @@
-<div>
-	<button type="button" class="btn btn-primary"><a  (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</a></button>
-	<button type="button" class="btn btn-primary"><a  (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</a></button>
-	<a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
+
+<div style="text-align: right">
+	<a routerLink="profile" *ngIf="auth.loggedIn">{{currentUser}}</a>&nbsp;
+	<button type="button" class="btn btn-primary" (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
+	<button type="button" class="btn btn-success" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
 </div>
 <header>
 	<div id='cssmenu'>

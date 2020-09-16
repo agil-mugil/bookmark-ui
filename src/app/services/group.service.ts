@@ -11,7 +11,11 @@ export class GroupService {
   constructor(private http:HttpClient, private sharedService: SharedService) { }
 	username: string;
 	getGroups() {
-		return this.http.get('/server/api/v1/groups');
+		this.username = this.sharedService.getUserName();
+		const httpOptions = {
+			headers: new HttpHeaders({'Content-Type' : 'application/json','username':this.username})
+			};
+		return this.http.get('/server/api/v1/groups',httpOptions);
 	}
 	
 	getGroupTypes() {
@@ -28,5 +32,10 @@ export class GroupService {
 			};
 		return this.http.post("/server/api/v1/groups/createGroup", body,httpOptions);
 	}
+	
+	deleteGroupAdmin(groupUserId: number){
+		return this.http.delete("/server/api/v1/groupAdmins/deleteGroupAdmin?groupUserId="+groupUserId);
+	}
+	
 	
 }

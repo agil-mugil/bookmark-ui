@@ -8,6 +8,7 @@ import { GroupService } from '../../services/group.service';
 })
 export class GroupComponent implements OnInit {
 
+  errorMessage = '';
   constructor(private groupService: GroupService) { }
   groups: any;
   ngOnInit(): void {
@@ -17,8 +18,22 @@ export class GroupComponent implements OnInit {
 getGroups() {
 		this.groupService.getGroups().subscribe(
 			data => {this.groups = data},
-			err => console.error(err),
+			err => {console.error(err)
+					if (err.status=404) {
+						this.errorMessage = "You are not admin of any group!";
+					}},
 			() => console.log('Groups Loaded')
+		);
+	}
+
+deleteAdmin(groupId: number){
+	this.groupService.deleteGroupAdmin(groupId).subscribe(
+			data => {
+				this.getGroups()
+				console.log(data);
+			},
+			err => {console.error(err)},
+			() => console.log('Group admin deleted')
 		);
 	}
 

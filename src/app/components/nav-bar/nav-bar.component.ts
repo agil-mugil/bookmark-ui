@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,17 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  currentUser:string ='test';
+
+  constructor(public auth: AuthService, private sharedService: SharedService) {
+ 	}
+	OnInit() {
+	};
+	setCurrentUser(){
+		if (this.auth.loggedIn) {
+			this.currentUser = "Welcome " + this.sharedService.getUserName();
+		}
+	}
 	activeMenu: any =1;
 	isActive(menu:any): string {
 		if(menu==1) {
@@ -17,6 +28,7 @@ export class NavBarComponent implements OnInit {
 	}
 	setMenu(menuId:any): void {
 		this.activeMenu=menuId;
+		this.setCurrentUser();
 	}
 	  ngOnInit() {
 	  }

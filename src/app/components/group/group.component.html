@@ -1,9 +1,14 @@
-<div class="container">
-  <table class="table table-bordered table-inverse">
+&nbsp;
+ <div *ngIf="errorMessage != ''">
+      <h3 class="has-info">{{errorMessage}}</h3>
+ </div>
+<div class="container" *ngIf='groups && groups.length'>
+  <table class="table table-bordered ">
     <tr>
       <th>Group By</th>
       <th>Group Name</th>
       <th>Group Creator</th>
+	  <th>Group Admin(s)</th>
       <th>Group Cards</th>
 	  <th>Create Card</th>
     </tr>
@@ -16,6 +21,12 @@
       </td>
       <td>
         {{group.groupAdmins[0].userId}}
+      </td>
+	  <td>
+		<div style="padding: 5px;" *ngFor="let admin of group.groupAdmins">{{admin.userId}} 
+		<button *ngIf='group.groupAdmins.length>1' type="button" class="btn btn-outline-danger btn-sm" (click)='deleteAdmin(admin.groupUserId)'>Del</button> 
+		</div>
+        
       </td>
       <td>
 		<a [routerLink] = "['/cards', group.groupId]">{{group.groupValue}}</a>
