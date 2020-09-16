@@ -37,5 +37,13 @@ export class GroupService {
 		return this.http.delete("/server/api/v1/groupAdmins/deleteGroupAdmin?groupUserId="+groupUserId);
 	}
 	
+	addAdminToGroup(groupAdmin: any) {
+		let body = JSON.stringify(groupAdmin.getRawValue());
+		this.username = this.sharedService.getUserName();
+		const httpOptions = {
+			headers: new HttpHeaders({'Content-Type' : 'application/json','username':this.username})
+			};
+		return this.http.post("/server/api/v1/groupAdmins/createGroupAdmin", body,httpOptions);
+	}
 	
 }

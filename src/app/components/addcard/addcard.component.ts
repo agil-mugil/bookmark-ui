@@ -48,7 +48,6 @@ createCard() {
 		const shortUrlValue = this.sharedService.getShortUrl(this.cardForm.get('bookmarkUrl').value);
 		const finalShortUrl = window.location.origin+'/'+this.groupValue+"/"+shortUrlValue;
 		this.cardForm.patchValue({shortUrl: finalShortUrl});
-		alert(this.cardForm.get('shortUrl').value);
 		this.validMessage = "Your Card has been added succesfully to your group.";
 		this.cardService.createCard(this.cardForm.value).subscribe(
 			data => {

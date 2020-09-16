@@ -9,8 +9,7 @@ import { SharedService } from '../../services/shared.service';
 })
 export class NavBarComponent implements OnInit {
 
-  currentUser:string ='test';
-
+  currentUser:string ='Home!';
   constructor(public auth: AuthService, private sharedService: SharedService) {
  	}
 	OnInit() {

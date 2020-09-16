@@ -14,6 +14,7 @@ groupTypes: any;
 groupValues: any;
 
 groupForm: FormGroup;
+
 validMessage: string = "";
   constructor(private groupService: GroupService) { }
 

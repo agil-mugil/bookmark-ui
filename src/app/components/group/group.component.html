@@ -2,15 +2,18 @@
  <div *ngIf="errorMessage != ''">
       <h3 class="has-info">{{errorMessage}}</h3>
  </div>
+<div *ngIf="validMessage != ''">
+      <h3 class="has-info">{{validMessage}}</h3>
+ </div>
 <div class="container" *ngIf='groups && groups.length'>
-  <table class="table table-bordered ">
+  <table class="table table-bordered  table-inverse ">
     <tr>
       <th>Group By</th>
       <th>Group Name</th>
       <th>Group Creator</th>
 	  <th>Group Admin(s)</th>
       <th>Group Cards</th>
-	  <th>Create Card</th>
+	  <th>Action on Groups</th>
     </tr>
     <tr *ngFor="let group of groups">
       <td>
@@ -32,7 +35,12 @@
 		<a [routerLink] = "['/cards', group.groupId]">{{group.groupValue}}</a>
       </td>
 		<td>
-		<a [routerLink] = "['/addCard',group.groupId,group.groupValue]">Add a Card</a>
+		<a [routerLink] = "['/addCard',group.groupId,group.groupValue]">Add a Card</a>&nbsp;&nbsp;
+		<br><br>
+		<form [formGroup]="groupAdmin" (ngSubmit)="addAdminToGroup(group.groupId)" novalidate>
+		  <input type="text" class="form-control" formControlName="userId" required placeholder="Enter USER ID and add to Group"/><br>
+		  <button type="submit" class="btn btn-outline-success btn-sm"> Add admin</button>
+		</form>
       </td>
     </tr>
   </table>
