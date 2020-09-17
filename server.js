@@ -28,7 +28,7 @@ app.get('/*', (req, res) => {
 /**
  * Get port from environment and store in Express.
  */
- const port = '8080';
+ const port = '4020';
 app.set('port', port);
 
 /**
@@ -39,4 +39,4 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on ${port}`));
+server.listen(process.env.PORT, () => console.log(`API running on ${port}`));
