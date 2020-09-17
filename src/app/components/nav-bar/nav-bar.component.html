@@ -7,9 +7,10 @@
 <header>
 	<div id='cssmenu'>
 	<ul>
-	   <li class="{{activeMenu==1? 'active' : ''}}" ><a [routerLink] = "['/cards']" (click)='setMenu(1)'>Home (Cards)</a></li>
+	   <li class="{{activeMenu==1? 'active' : ''}}" ><a [routerLink] = "['/cards']" (click)='setMenu(2)'>Home (Cards)</a></li>
+	   <li class="{{activeMenu==2? 'active' : ''}}" ><a [routerLink] = "['/shortcut']" (click)='setMenu(2)'>Get Shortcut</a></li>
  	   <li class="{{activeMenu==3? 'active' : ''}}" ><a [routerLink] = "['/createGroup']" (click)='setMenu(3)'>Create Group</a></li>
-	   <li class="{{activeMenu==2? 'active' : ''}}" ><a [routerLink] = "['/groups']" (click)='setMenu(2)'>Groups</a></li>
+	   <li class="{{activeMenu==4? 'active' : ''}}" ><a [routerLink] = "['/groups']" (click)='setMenu(4)'>Groups</a></li>
 	  
 	</ul>
 	</div>

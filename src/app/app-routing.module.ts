@@ -9,6 +9,7 @@ import { AddcardComponent } from './components/addcard/addcard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard} from './services/auth.guard';
 import { CallbackComponent} from './components/callback/callback.component';
+import { ShortcutComponent } from './components/shortcut/shortcut.component';
 
 const routes: Routes = [{
 			path: 'cards',
@@ -31,6 +32,10 @@ const routes: Routes = [{
 			{
 			path: 'createGroup',
 			component: CreateGroupComponent,
+    		canActivate: [AuthGuard]
+			},{
+			path: 'shortcut',
+			component: ShortcutComponent,
     		canActivate: [AuthGuard]
 			},
 			{

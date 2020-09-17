@@ -15,6 +15,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BookmarkCardComponent } from './components/bookmark-card/bookmark-card.component';
 import { CallbackComponent } from './components/callback/callback.component';
+import { ShortcutComponent } from './components/shortcut/shortcut.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CallbackComponent } from './components/callback/callback.component';
     NavBarComponent,
     ProfileComponent,
     BookmarkCardComponent,
-    CallbackComponent
+    CallbackComponent,
+    ShortcutComponent
   ],
   imports: [
     BrowserModule,
