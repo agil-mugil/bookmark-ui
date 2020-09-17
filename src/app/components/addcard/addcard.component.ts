@@ -37,7 +37,7 @@ objectkeys = Object.keys;
 		cardDesc: new FormControl('',Validators.required),
 		bookmarkUrl: new FormControl('',Validators.required),
 		shortUrl: new FormControl(''),
-		imageUrl: new FormControl('',Validators.required),
+		imageUrl: new FormControl(''),
 		groupId: new FormControl(this.groupId,Validators.required)
 	});
   }
@@ -54,6 +54,7 @@ createCard() {
 				return true;
 			},
 			error => {
+				this.validMessage = "Card not created and had issue";
 				return Observable.throw(error);
 			}
 		)

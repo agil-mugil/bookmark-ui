@@ -29,7 +29,7 @@
 	  <td>
 		<div style="padding: 5px;" *ngFor="let admin of group.groupAdmins">{{admin.userId}} 
 		
-		<button *ngIf='group.groupAdmins.length>1' type="button" class="btn btn-outline-danger btn-sm" (click)='deleteAdmin(admin.groupUserId)'>Del</button> 
+		<button *ngIf='group.groupAdmins.length>1 && isCurrentUserGroupAdmin(group.groupAdmins)' type="button" class="btn btn-outline-danger btn-sm" (click)='deleteAdmin(admin.groupUserId)'>Del</button> 
 		</div>
         
       </td>

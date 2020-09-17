@@ -2,8 +2,10 @@
 	<table class="table" border="0">
 		<tr>
 			<td>
-					<label>{{card.cardTitle}}</label>
+					<label style="color: rgb(245, 10, 74);">{{card.cardTitle}}</label>
 			</td>
+			<td *ngIf="card.imageUrl"><img height="20px" width="20px" [src]="[card.imageUrl]"/></td>
+			<td *ngIf="!card.imageUrl"><img src="./favicon.ico"/></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
