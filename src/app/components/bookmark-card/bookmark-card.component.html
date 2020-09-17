@@ -1,0 +1,29 @@
+<a target="_blank" rel="noopener" [href] = "[card.shortUrl]">  
+	<table class="table" border="0">
+		<tr>
+			<td>
+					<label>{{card.cardTitle}}</label>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>
+				<div [title]="[card.cardDesc]">{{card.cardDesc}}</div>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</a>
+<table class="table" border="0">
+	<tr>
+		<td *ngIf="card.publish=='N'">
+				<button  type="button" class="btn btn-success" (click)='onClick()' >Publish</button>
+		</td>
+	</tr>
+</table>
+
+
