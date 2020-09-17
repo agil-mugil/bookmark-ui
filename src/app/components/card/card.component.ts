@@ -24,6 +24,7 @@ export class CardComponent implements OnInit {
 	}
   }
 
+	publishedCard: any;
 	getCardsByGroup(groupId: any) {
 		this.cardService.getCardsByGroup(groupId).subscribe(
 			data => {this.cards = data},
@@ -39,4 +40,16 @@ export class CardComponent implements OnInit {
 		);
 	}
 	
+	onPublishClicked(cardId: number): void {
+		this.cardService.publishCard(cardId).subscribe(
+			data => {this.publishedCard=data;
+				console.log(this.publishedCard.groupId);
+				this.getCardsByGroup(this.publishedCard.groupId);
+				return true;
+			},
+			error => {
+				console.log('Error in card publish'+error);
+			}
+		)
+	}
 }

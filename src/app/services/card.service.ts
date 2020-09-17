@@ -34,5 +34,13 @@ export class CardService {
 			};
 		return this.http.post("/server/api/v1/cards/createCard", body,httpOptions);
 	}
+	publishCard(cardId: number) {
+		let body = JSON.stringify(cardId);
+		this.username = this.sharedService.getUserName();
+		const httpOptions = {
+			headers: new HttpHeaders({'Content-Type' : 'application/json','username':this.username})
+			};
+		return this.http.post("/server/api/v1/cards/publishCard", body,httpOptions);
+	}
 	
 }

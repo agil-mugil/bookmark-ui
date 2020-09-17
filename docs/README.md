@@ -13,14 +13,14 @@
 	-- # TODO Make the Redirectcomponent to enable the redirection for the quick short url and that does not belongs to a any group by checking the expiry date.
 
 # Group Component
-	-- GroupComponent to dislpaly all the groups on the system 
+	-- GroupComponent to dislpaly all the groups on the system
     -- # TODO - make it is as individual component
 	# Create Group Component:
 		-- Component to create the Group in to the system
 		-- Made the Group based on Tribe or Featured team (#FT) and application available to the Group Creation
-		-- # TODO -Need to dislpay the cards specific to a group and add card to it.
-		-- Make the Group Component to create a Group and also to display the cards pertaining to that group
-		-- For that Create GroupComponent to display all the groups in the system.
+		-- # TODO -Need to dislpay the cards specific to a group and add card to it. -done
+		-- Make the Group Component to create a Group and also to display the cards pertaining to that group -done
+		-- For that Create GroupComponent to display all the groups in the system. - done
 
 		
 # Next Step:

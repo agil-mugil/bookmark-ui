@@ -13,6 +13,8 @@ import { CreateGroupComponent } from './components/creategroup/create-group.comp
 import { AddcardComponent } from './components/addcard/addcard.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { BookmarkCardComponent } from './components/bookmark-card/bookmark-card.component';
+import { CallbackComponent } from './components/callback/callback.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     CreateGroupComponent,
     AddcardComponent,
     NavBarComponent,
-    ProfileComponent
+    ProfileComponent,
+    BookmarkCardComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,

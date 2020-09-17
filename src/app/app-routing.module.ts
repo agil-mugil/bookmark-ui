@@ -8,6 +8,8 @@ import { CreateGroupComponent } from './components/creategroup/create-group.comp
 import { AddcardComponent } from './components/addcard/addcard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard} from './services/auth.guard';
+import { BookmarkCardComponent } from './components/bookmark-card/bookmark-card.component';
+import { CallbackComponent} from './components/callback/callback.component';
 
 const routes: Routes = [{
 			path: 'cards',
@@ -36,6 +38,10 @@ const routes: Routes = [{
 		    path: 'profile',
 		    component: ProfileComponent,
     		canActivate: [AuthGuard]
+		 	},
+			{
+		    path: 'callback',
+		    component: CallbackComponent
 		 	},
 			{
 			path: '',
