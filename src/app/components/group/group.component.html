@@ -39,7 +39,7 @@
 		<a [routerLink] = "['/addCard',group.groupId,group.groupValue]">Add a Card</a>&nbsp;&nbsp;
 		<br><br>
 		<form [formGroup]="groupAdmin" (ngSubmit)="addAdminToGroup(group.groupId)" novalidate>
-		  <input type="text" class="form-control" formControlName="userId" required placeholder="Enter USER ID and add to Group"/><br>
+		  <input type="text" class="form-control" formControlName="userId" required placeholder="Assign admin"/><br>
 		  <button type="submit" class="btn btn-outline-success btn-sm"> Add admin</button>
 		</form>
       </td>
