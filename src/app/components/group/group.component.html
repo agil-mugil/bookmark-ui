@@ -24,10 +24,11 @@
       </td>
       <td>
         {{group.groupAdmins[0].userId}}<br><br>
-		<a class="btn btn-info"  [routerLink] = "['/cards', group.groupId]">Publish Cards</a>
+		<a *ngIf="isCurrentUserGroupAdmin(group.groupAdmins)" class="btn btn-info"  [routerLink] = "['/cards', group.groupId]">Publish Cards</a>
       </td>
 	  <td>
 		<div style="padding: 5px;" *ngFor="let admin of group.groupAdmins">{{admin.userId}} 
+		
 		<button *ngIf='group.groupAdmins.length>1' type="button" class="btn btn-outline-danger btn-sm" (click)='deleteAdmin(admin.groupUserId)'>Del</button> 
 		</div>
         
@@ -38,7 +39,7 @@
 		<td colspan="2">
 		<a [routerLink] = "['/addCard',group.groupId,group.groupValue]">Add a Card</a>&nbsp;&nbsp;
 		<br><br>
-		<form [formGroup]="groupAdmin" (ngSubmit)="addAdminToGroup(group.groupId)" novalidate>
+		<form *ngIf="isCurrentUserGroupAdmin(group.groupAdmins)" [formGroup]="groupAdmin" (ngSubmit)="addAdminToGroup(group.groupId)" novalidate>
 		  <input type="text" class="form-control" formControlName="userId" required placeholder="Assign admin"/><br>
 		  <button type="submit" class="btn btn-outline-success btn-sm"> Add admin</button>
 		</form>

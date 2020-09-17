@@ -11,11 +11,7 @@ export class GroupService {
   constructor(private http:HttpClient, private sharedService: SharedService) { }
 	username: string;
 	getGroups() {
-		this.username = this.sharedService.getUserName();
-		const httpOptions = {
-			headers: new HttpHeaders({'Content-Type' : 'application/json','username':this.username})
-			};
-		return this.http.get('/server/api/v1/groups',httpOptions);
+		return this.http.get('/server/api/v1/groups');
 	}
 	
 	getGroupTypes() {

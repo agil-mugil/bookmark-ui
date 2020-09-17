@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupService } from '../../services/group.service';
 import {FormGroup, FormControl} from '@angular/forms';
-import { Observable } from 'rxjs';
-
+import { SharedService } from '../../services/shared.service';
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
@@ -12,7 +11,8 @@ export class GroupComponent implements OnInit {
 
   errorMessage = '';
   validMessage = '';
-  constructor(private groupService: GroupService) { }
+  currentUser: string;
+  constructor(private groupService: GroupService, private sharedService: SharedService) { }
   groups: any;
   groupAdmin: FormGroup;
   ngOnInit(): void {
@@ -22,6 +22,7 @@ export class GroupComponent implements OnInit {
 		groupId: new FormControl(''),
 		userId: new FormControl('')
 	});
+	this.currentUser = this.sharedService.getUserName();
   }
 
 getGroups() {
@@ -29,7 +30,7 @@ getGroups() {
 			data => {this.groups = data},
 			err => {console.error(err)
 					if (err.status=404) {
-						this.errorMessage = "You are not admin of any group!";
+						this.errorMessage = "No Groups found";
 					}},
 			() => console.log('Groups Loaded')
 		);
@@ -68,6 +69,10 @@ addAdminToGroup(groupId: number){
 			},
 			() => console.log('Group admin deleted')
 		)
+}
+
+isCurrentUserGroupAdmin(groupAdmins: any[]){
+	return(groupAdmins.some(groupAdmin => groupAdmin.userId === this.currentUser));
 }
 
 }
