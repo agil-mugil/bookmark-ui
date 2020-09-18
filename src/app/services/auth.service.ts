@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
 import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
-import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
+import { tap, catchError, concatMap, shareReplay, delay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -25,6 +25,7 @@ export class AuthService {
   // concatMap: Using the client instance, call SDK method; SDK returns a promise
   // from: Convert that resulting promise into an observable
   isAuthenticated$ = this.auth0Client$.pipe(
+	delay(800), // add delay to pipe
     concatMap((client: Auth0Client) => from(client.isAuthenticated())),
     tap(res => this.loggedIn = res)
   );
