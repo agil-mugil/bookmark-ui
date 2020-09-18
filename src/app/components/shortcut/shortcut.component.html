@@ -13,4 +13,8 @@
 			<button type="submit" class="btn btn-primary" >Get Short url</button>
 		</div>
   </form>
+	<div  *ngIf="shortUrl!= ''" class="form-group">
+	      <input class="form-control" type="text" [value]=[shortUrl] #userinput>
+	      <button (click)="copyInputMessage(userinput)" value="click to copy" class="btn btn-success" >Copy short URL</button>
+	</div>
 </div>

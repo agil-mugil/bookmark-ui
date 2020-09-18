@@ -12,7 +12,9 @@ export class RedirectGuard implements CanActivate {
 
    card:any;
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-	this.getCard(this.platform.href);
+	if(this.platform.href.indexOf("?code")<0) {
+		this.getCard(this.platform.href);
+	}
 	return false;
   }
 
@@ -23,7 +25,7 @@ export class RedirectGuard implements CanActivate {
 					},
 			err => {
 					console.error(err),
-					alert("No match found for the given url"+shortUrl)
+					alert("No match found for the given url "+shortUrl)
 					},
 			() => console.log('Redirected to Original URL')
 		);

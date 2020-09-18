@@ -12,7 +12,7 @@ export class ShortcutComponent implements OnInit {
 
 bookmarkForm: FormGroup;
 validMessage: string = "";
-
+shortUrl: string ="";
   constructor(private sharedService: SharedService, private shortcutService: ShortcutService) { }
 
   ngOnInit(): void {
@@ -38,7 +38,8 @@ createShortcut(){
 		this.shortcutService.createShortUrl(this.bookmarkForm.value).subscribe(
 			data => {
 				this.bookmarkForm.reset();
-				this.validMessage = "Short url got generated. URL = "+finalShortUrl;
+				this.validMessage = "Short url got generated";
+				this.shortUrl=finalShortUrl;
 				return true;
 			},
 			error => {
@@ -50,5 +51,11 @@ createShortcut(){
 		this.validMessage = "Please fill out the form before submitting!";
 	}
 }
+
+copyInputMessage(inputElement:any){
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+  }
 
 }
