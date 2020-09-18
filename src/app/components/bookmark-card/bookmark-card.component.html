@@ -23,8 +23,12 @@
 <table class="table" border="0">
 	<tr>
 		<td *ngIf="card.publish=='N'">
-				<button  type="button" class="btn btn-success" (click)='onClick()' >Publish</button>
+			<button  type="button" class="btn btn-success" (click)='clickedPublish()'>Publish</button>
 		</td>
+		<td>
+			<button  type="button" class="btn btn-danger" (click)='clickedDelete()'>Del</button>
+		</td>
+		
 	</tr>
 </table>
 

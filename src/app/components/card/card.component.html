@@ -5,7 +5,7 @@
 <body>
 <div class="container">
   <div class="card" *ngFor="let card of cards">
-	<app-bookmark-card [card]=card  (publishClicked)='onPublishClicked($event)'></app-bookmark-card>
+	<app-bookmark-card [card]=card  (publishClicked)='onPublishClicked($event)' (deleteClicked)='onDeleteClicked($event)'></app-bookmark-card>
   </div>
 </div>
 </body>

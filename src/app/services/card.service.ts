@@ -42,5 +42,15 @@ export class CardService {
 			};
 		return this.http.post("/server/api/v1/cards/publishCard", body,httpOptions);
 	}
+	getCountOfGroupAdmin(groupId: number) {
+		this.username = this.sharedService.getUserName();
+		const httpOptions = {
+			headers: new HttpHeaders({'Content-Type' : 'application/json','username':this.username})
+			};
+	return this.http.get('/server/api/v1/groupAdmins/groupAdminCount?groupId='+groupId,httpOptions);
+	}
+	deleteCard(cardId: number) {
+		return this.http.delete("/server/api/v1/cards/deleteCard?cardId="+cardId);
+	}
 	
 }
